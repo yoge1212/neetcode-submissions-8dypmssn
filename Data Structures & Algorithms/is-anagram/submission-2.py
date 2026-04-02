@@ -1,0 +1,24 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        #keep track of count of letters if any count is greater than 3 or less than 1 its false
+        if len(s) != len(t):
+            return False
+        
+        map = {}
+        for i in range(len(s)):
+            if s[i] in map:
+                map[s[i]] = map[s[i]] + 1
+            else:
+                map[s[i]] = 1
+
+            if t[i] in map:
+                map[t[i]] = map[t[i]] + 1
+            else:
+                map[t[i]] = 1
+
+        for key in map:
+            if map[key] % 2 != 0:
+                return False
+        return True
+
+            
